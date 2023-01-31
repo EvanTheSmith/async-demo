@@ -1,11 +1,10 @@
 console.log("Before");
-const user = getUser({ id: 1 });
-console.log(user);
+getUser({ id: 1 }, (user) => console.log(user));
 console.log("After");
 
-function getUser(user_object) {
+function getUser(user_object, callback) {
     setTimeout(() => { 
         console.log("Reading from a database");
-        return { id: user_object.id, name: "John Doe" };
+        callback({ id: user_object.id, name: "John Doe" });
     }, 2000);
 }
