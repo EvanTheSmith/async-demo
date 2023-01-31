@@ -1,3 +1,11 @@
 console.log("Before");
-setTimeout(() => { console.log("Reading from a database"); }, 2000);
+const user = getUser({ id: 1 });
+console.log(user);
 console.log("After");
+
+function getUser(user_object) {
+    setTimeout(() => { 
+        console.log("Reading from a database");
+        return { id: user_object.id, name: "John Doe" };
+    }, 2000);
+}
