@@ -6,14 +6,14 @@
 //     })
 // }
 
-// Promise syntax
-getUser(1)
-.then(user => getRepositories(user.name))
-.then(repo => getCommits(repo[0]))
-.then(commits => console.log('Commits', commits))
-.catch(error => console.log("Errors: ", error.message));
+// Promise Syntax
+// getUser(1)
+// .then(user => getRepositories(user.name))
+// .then(repo => getCommits(repo[0]))
+// .then(commits => console.log('Commits', commits))
+// .catch(error => console.log("Errors: ", error.message));
 
-// Async Version
+// Async/Await Syntax
 async function displayCommits() {
 const user = await getUser(1);
 const repos = await getRepositories(user.name);
