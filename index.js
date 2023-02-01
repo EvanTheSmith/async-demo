@@ -9,7 +9,8 @@
 getUser(1) // promise syntax
 .then(user => getRepositories(user.name))
 .then(repo => getCommits(repo[0]))
-.then(commits => console.log('Commits', commits));
+.then(commits => console.log('Commits', commits))
+.catch(error => console.log("Errors: ", error.message));
 
 function getUser(id) {
     return new Promise((resolve, reject) => {
