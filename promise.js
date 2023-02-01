@@ -1,7 +1,9 @@
 const p = new Promise((resolve, reject) => { // generic promise template
+    // some promise work is done ... the state is pending //
+    
     setTimeout(() =>  { 
-        // resolve(1); 
-        reject(new Error('message'));
+        // resolve(1); // resolved or fulfilled promise
+        reject(new Error('message')); // rejected promise
     }, 1000); 
 });
 
