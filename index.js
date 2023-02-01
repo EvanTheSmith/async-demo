@@ -1,5 +1,14 @@
 console.log("Before");
-getUser(1).then(response => console.log(response));
+// getUser(1, (user) => {
+//     getRepositories(user.name, (repos) => {
+//         getCommits(repos[0], (commits) => {
+//             console.log(commits);
+//         })
+//     })
+// }
+
+
+
 console.log("After");
 
 function getUser(id) {
