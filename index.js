@@ -1,4 +1,5 @@
-// getUser(1, (user) => { // callback syntax
+// Callback syntax
+// getUser(1, (user) => { 
 //     getRepositories(user.name, (repos) => {
 //         getCommits(repos[0], (commits) => {
 //             console.log(commits);
@@ -15,10 +16,12 @@
 
 // Async/Await Syntax
 async function displayCommits() {
-const user = await getUser(1);
-const repos = await getRepositories(user.name);
-const commits = await getCommits(repos[0]);
-console.log(commits);
+    try {
+    const user = await getUser(1);
+    const repos = await getRepositories(user.name);
+    const commits = await getCommits(repos[0]);
+    console.log(commits);
+    } catch(error) { console.log(error.message) }
 }
 displayCommits();
 
