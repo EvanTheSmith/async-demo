@@ -13,7 +13,7 @@ p.then(result => console.log('Result', result))
 // Promises can be immediately resolved or rejected:
 
 const resolved_promise = Promise.resolve({ id: 1 });
-const rejected_promise = Promise.reject({ id: 2 });
+const rejected_promise = Promise.reject(new Error('this promise auto-rejected'));
 
 resolved_promise.then(result => console.log('Resolved Promise: ', result));
-rejected_promise.catch(result => console.log('Rejected Promise: ', result));
+rejected_promise.catch(error => console.log('Error: ', error.message));
