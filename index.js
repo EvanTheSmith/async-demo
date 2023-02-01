@@ -1,10 +1,12 @@
 console.log("Before");
-getUser({ id: 1 }, (user) => console.log(user));
+getUser(1).then(response => console.log(response));
 console.log("After");
 
-function getUser(user_object, callback) {
-    setTimeout(() => { 
-        console.log("Reading from a database");
-        callback({ id: user_object.id, name: "John Doe" });
-    }, 2000);
+function getUser(id) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => { 
+            console.log("Reading from a database");
+            resolve({ id, name: "John Doe" });
+        }, 2000);
+    });
 }
