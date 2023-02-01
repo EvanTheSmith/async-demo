@@ -6,11 +6,21 @@
 //     })
 // }
 
-getUser(1) // promise syntax
+// Promise syntax
+getUser(1)
 .then(user => getRepositories(user.name))
 .then(repo => getCommits(repo[0]))
 .then(commits => console.log('Commits', commits))
 .catch(error => console.log("Errors: ", error.message));
+
+// Async Version
+async function displayCommits() {
+const user = await getUser(1);
+const repos = await getRepositories(user.name);
+const commits = await getCommits(repos[0]);
+console.log(commits);
+}
+displayCommits();
 
 function getUser(id) {
     return new Promise((resolve, reject) => {
